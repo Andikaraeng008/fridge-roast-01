@@ -8,7 +8,7 @@ import os
 LINE = "My smart fridge rated my milk 'past its prime' in front of my guests, then suggested I replace it \u2014 it meant me, not the milk."
 
 def main():
-    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8") as f:
         f.write(LINE + "\n")
